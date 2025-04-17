@@ -1,5 +1,7 @@
 package com.mikelauwrence.feelandtaskapi.dto;
 
+import java.time.LocalDateTime;
+
 import com.mikelauwrence.feelandtaskapi.models.enums.Priority;
 import com.mikelauwrence.feelandtaskapi.models.enums.Status;
 
@@ -11,6 +13,6 @@ public record CreateTaskDTO(
     String description,
     Status status,
     Priority priority,
-    String dueDate) {
+    LocalDateTime dueDate) {
   
 }
