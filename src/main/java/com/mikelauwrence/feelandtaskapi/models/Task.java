@@ -12,6 +12,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -47,7 +48,11 @@ public class Task {
   @Column(nullable = false)
   private LocalDateTime dueDate;
   
-  // TODO: use JPA to set this field automatically
+  @Column(nullable = false, updatable = false)
   private LocalDateTime createdAt;
 
+  @PrePersist
+  private void prePersist() {
+    this.createdAt = LocalDateTime.now();
+  }
 }
