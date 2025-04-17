@@ -2,8 +2,13 @@ package com.mikelauwrence.feelandtaskapi.models;
 
 import java.time.LocalDateTime;
 
+import com.mikelauwrence.feelandtaskapi.models.enums.Priority;
+import com.mikelauwrence.feelandtaskapi.models.enums.Status;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,11 +36,13 @@ public class Task {
   @Column(nullable = false, length = 500)
   private String description;
   
-  // TODO: change to enum
-  private String status;
+  @Enumerated(EnumType.STRING)
+  @Column(nullable = false)
+  private Status status;
   
-  // TODO: change to enum
-  private String priority;
+  @Enumerated(EnumType.STRING)
+  @Column(nullable = false)
+  private Priority priority;
   
   @Column(nullable = false)
   private LocalDateTime dueDate;
