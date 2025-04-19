@@ -5,7 +5,6 @@ import java.util.Set;
 public record CreateUserDTO(
   String username, 
   String password, 
-  String userCode, 
   Set<String> roles) {
   
 }
